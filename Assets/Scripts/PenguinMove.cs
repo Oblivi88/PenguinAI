@@ -8,9 +8,43 @@ public class PenguinMove : MonoBehaviour
     public LayerMask terrainLayers; // ensures raycast only clicks on ground, not everything
     private InputSystem_Actions inputActions;
 
+    // footsteps sound effect handling
+    private bool penguinIsMoving = false;
+    public AudioSource walking;
+
+
     private void Awake()
     {
         inputActions = new InputSystem_Actions();
+        
+    }
+
+    private void Update()
+    {
+        // if the velocity is not 0, it is moving. This will tell the sound effect when to play.
+        if (navAgent.velocity.x != 0 || navAgent.velocity.z != 0)
+        {
+            penguinIsMoving = true;
+        } 
+        else
+        {
+            penguinIsMoving = false;
+        }
+
+        if (penguinIsMoving)
+        {
+            if (walking.isPlaying == false)
+            {
+                walking.Play();
+            }
+        }
+        else
+        {
+            if (!walking.isPlaying)
+            {
+                walking.Stop();
+            }
+        }
     }
 
     private void OnEnable()
