@@ -12,6 +12,9 @@ public class PenguinMove : MonoBehaviour
     private bool penguinIsMoving = false;
     public AudioSource walking;
 
+    // testing icon
+    public bool isCuddling = false;
+    public GameObject heart;
 
     private void Awake()
     {
@@ -45,6 +48,14 @@ public class PenguinMove : MonoBehaviour
                 walking.Stop();
             }
         }
+
+
+        // if c key is pressed, show or hide heart icon (simulation for testing purposes)
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            isCuddling = !isCuddling;
+        }
+        heart.SetActive(isCuddling);
     }
 
     private void OnEnable()
