@@ -13,6 +13,14 @@ namespace NodeCanvas.Tasks.Actions
         public float wanderDistance = 4f;
         public float wanderRadius = 3f;
 
+        public float wanderDurationTimer;
+        public float wanderDurationMax;
+
+        protected override void OnExecute()
+        {
+            wanderDurationTimer = 0f;
+            wanderDurationMax = Random.Range(3f, 12f);
+        }
         protected override void OnUpdate()
         {
             if (timeSinceLastSampleBBP.value == 0 && isMovingBBP.value == false)
@@ -23,6 +31,12 @@ namespace NodeCanvas.Tasks.Actions
                 {
                     targetPositionBBP.value = hitInfo.position;
                 }
+            }
+
+            wanderDurationTimer += Time.deltaTime;
+            if (wanderDurationTimer >= wanderDurationMax)
+            {
+                EndAction(true);
             }
         }
         private Vector3 CalculateTargetPosition()

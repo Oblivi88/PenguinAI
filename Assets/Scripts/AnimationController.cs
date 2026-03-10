@@ -9,12 +9,12 @@ public class AnimationController : MonoBehaviour
     // used in the Animator
     private readonly int isMovingHash = Animator.StringToHash("isMoving");
 
-    // check for moving
+    // check if moving
     public bool isMoving;
-
     void Update()
     {
-        if (agent.velocity.magnitude != 0)
+        animator.SetBool(isMovingHash, isMoving);
+        if (agent.velocity.magnitude >= 0.1f)
         {
             isMoving = true;
         }

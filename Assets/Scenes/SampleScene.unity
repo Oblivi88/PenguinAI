@@ -6600,7 +6600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Idle","_position":{"x":680.0,"y":20.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_nestedFSM":{"_value":1},"_name":"Waddling","_position":{"x":480.0,"y":140.0},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Sliding","_position":{"x":500.0,"y":260.0},"$type":"NodeCanvas.StateMachines.ActionState"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Cuddling","_position":{"x":500.0,"y":340.0},"$type":"NodeCanvas.StateMachines.ActionState"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Eating","_position":{"x":500.0,"y":420.0},"$type":"NodeCanvas.StateMachines.ActionState"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Sleeping","_position":{"x":500.0,"y":500.0},"$type":"NodeCanvas.StateMachines.ActionState"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"$type":"NodeCanvas.Tasks.Actions.IdleTask"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Idle","_position":{"x":680.0,"y":20.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_nestedFSM":{"_value":1},"_name":"Waddling","_position":{"x":480.0,"y":140.0},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Sliding","_position":{"x":500.0,"y":260.0},"$type":"NodeCanvas.StateMachines.ActionState"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Cuddling","_position":{"x":500.0,"y":340.0},"$type":"NodeCanvas.StateMachines.ActionState"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Eating","_position":{"x":500.0,"y":420.0},"$type":"NodeCanvas.StateMachines.ActionState"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Sleeping","_position":{"x":500.0,"y":500.0},"$type":"NodeCanvas.StateMachines.ActionState"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences:
   - {fileID: 0}
   - {fileID: 11400000, guid: 5b6907ffa1a006848ba5d3b9ed2b0b7d, type: 2}
@@ -6608,7 +6608,7 @@ MonoBehaviour:
     _version: 3.29
     _category: 
     _comments: 
-    _translation: {x: -80, y: 89}
+    _translation: {x: -67.51261, y: 23.481787}
     _zoomFactor: 1
   _firstActivation: 0
   _enableAction: 0
