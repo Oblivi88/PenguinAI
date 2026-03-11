@@ -644,9 +644,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 430565818}
-  - {fileID: 415930880}
-  - {fileID: 1366051476}
-  - {fileID: 2104893149}
   m_Father: {fileID: 1371288248}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &19528388
@@ -1303,14 +1300,14 @@ Transform:
   m_GameObject: {fileID: 415930879}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.5853022, z: 0}
-  m_LocalScale: {x: 1, y: 1.0867536, z: 1}
+  m_LocalPosition: {x: 0, y: -0.8647982, z: 0}
+  m_LocalScale: {x: 1, y: 0.59283495, z: 0.83777744}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 69862764}
   - {fileID: 313152350}
   - {fileID: 520636298}
-  m_Father: {fileID: 19528387}
+  m_Father: {fileID: 1371288248}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &415930881
 CapsuleCollider:
@@ -6357,7 +6354,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.50000006
-  m_Speed: 7
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 240
@@ -6600,7 +6597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"$type":"NodeCanvas.Tasks.Actions.IdleTask"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Idle","_position":{"x":680.0,"y":20.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_nestedFSM":{"_value":1},"_name":"Waddling","_position":{"x":480.0,"y":140.0},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Sliding","_position":{"x":500.0,"y":260.0},"$type":"NodeCanvas.StateMachines.ActionState"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Cuddling","_position":{"x":500.0,"y":340.0},"$type":"NodeCanvas.StateMachines.ActionState"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Eating","_position":{"x":500.0,"y":420.0},"$type":"NodeCanvas.StateMachines.ActionState"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Sleeping","_position":{"x":500.0,"y":500.0},"$type":"NodeCanvas.StateMachines.ActionState"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"$type":"NodeCanvas.Tasks.Actions.IdleTask"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Idle","_position":{"x":680.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_nestedFSM":{"_value":1},"_name":"Waddling","_position":{"x":480.0,"y":140.0},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Sleeping","_position":{"x":880.0,"y":260.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Sliding","_position":{"x":600.0,"y":260.0},"$type":"NodeCanvas.StateMachines.ActionState"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Cuddling","_position":{"x":500.0,"y":340.0},"$type":"NodeCanvas.StateMachines.ActionState"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Eating","_position":{"x":500.0,"y":420.0},"$type":"NodeCanvas.StateMachines.ActionState"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences:
   - {fileID: 0}
   - {fileID: 11400000, guid: 5b6907ffa1a006848ba5d3b9ed2b0b7d, type: 2}
@@ -6608,7 +6605,7 @@ MonoBehaviour:
     _version: 3.29
     _category: 
     _comments: 
-    _translation: {x: -67.51261, y: 23.481787}
+    _translation: {x: -235.90942, y: 27.028069}
     _zoomFactor: 1
   _firstActivation: 0
   _enableAction: 0
@@ -7165,14 +7162,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366051475}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.44900003, y: -0.8109998, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.06975647, w: 0.9975641}
+  m_LocalPosition: {x: -0.449, y: -0.44240856, z: 0}
+  m_LocalScale: {x: 1, y: 0.54551, z: 0.83777744}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1555273515}
-  m_Father: {fileID: 19528387}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 1371288248}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 8}
 --- !u!1 &1371288247
 GameObject:
   m_ObjectHideFlags: 0
@@ -7203,6 +7200,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 19528387}
+  - {fileID: 415930880}
+  - {fileID: 1366051476}
+  - {fileID: 2104893149}
   m_Father: {fileID: 1109628172}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1377428215
@@ -11792,14 +11792,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104893148}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.44900003, y: -0.8109998, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.06975647, w: 0.9975641}
+  m_LocalPosition: {x: 0.449, y: -0.44240856, z: 0}
+  m_LocalScale: {x: 1, y: 0.54551, z: 0.83777744}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1061161689}
-  m_Father: {fileID: 19528387}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 1371288248}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -8}
 --- !u!43 &2124773821
 Mesh:
   m_ObjectHideFlags: 0
