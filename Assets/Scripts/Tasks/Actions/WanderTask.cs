@@ -4,11 +4,18 @@ using UnityEngine.AI;
 
 namespace NodeCanvas.Tasks.Actions
 {
+    // a combination of the WanderTask and NavigationTask scripts from class, and some of my own needed additions
     public class WanderTask : ActionTask
     {
         public BBParameter<float> timeSinceLastSampleBBP;
         public BBParameter<Vector3> targetPositionBBP;
         public BBParameter<bool> isMovingBBP;
+
+        public float sampleRateInSeconds;
+        public float sampleRadiusInUnits;
+
+        private Vector3 lastTargetPosition;
+        private NavMeshAgent navAgent;
 
         public float wanderDistance = 4f;
         public float wanderRadius = 3f;
@@ -16,13 +23,44 @@ namespace NodeCanvas.Tasks.Actions
         public float wanderDurationTimer;
         public float wanderDurationMax;
 
+        protected override string OnInit()
+        {
+            navAgent = agent.GetComponent<NavMeshAgent>();
+
+            if (navAgent == null)
+            {
+                return $"{agent.name} - NavigationTask: Unable to get NavMesh Agent Reference!";
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         protected override void OnExecute()
         {
             wanderDurationTimer = 0f;
-            wanderDurationMax = Random.Range(3f, 12f);
+            wanderDurationMax = Random.Range(5f, 15f);
+
         }
         protected override void OnUpdate()
         {
+            timeSinceLastSampleBBP.value += Time.deltaTime;
+            if (timeSinceLastSampleBBP.value > sampleRateInSeconds)
+            {
+                timeSinceLastSampleBBP.value = 0;
+
+                if (lastTargetPosition != targetPositionBBP.value) // if the destination is different since last update
+                {
+                    lastTargetPosition = targetPositionBBP.value;
+                    if (NavMesh.SamplePosition(targetPositionBBP.value, out NavMeshHit hitInfo, sampleRadiusInUnits, NavMesh.AllAreas))
+                    {
+                        navAgent.SetDestination(hitInfo.position);
+                    }
+                }
+
+                isMovingBBP.value = navAgent.remainingDistance != 0 && navAgent.remainingDistance != Mathf.Infinity || navAgent.pathPending;
+            }
             if (timeSinceLastSampleBBP.value == 0 && isMovingBBP.value == false)
             {
                 Vector3 destination = CalculateTargetPosition();

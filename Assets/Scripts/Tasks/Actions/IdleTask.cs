@@ -11,13 +11,14 @@ namespace NodeCanvas.Tasks.Actions {
 		protected override void OnExecute() {
             idleDuration = 0f;
             maxIdleDuration = Random.Range(5f, 15f);
+			Debug.Log(maxIdleDuration);
         }
 
-		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
 			idleDuration += Time.deltaTime;
 			if (idleDuration >= maxIdleDuration)
 			{
+				Debug.Log("idle done");
 				EndAction(true);
 			}
 		}
