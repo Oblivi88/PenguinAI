@@ -36,15 +36,23 @@ namespace NodeCanvas.Tasks.Actions
             }
             else if (chosenTaskBBP.value == 5)
             {
-                targetTaskPosition = new Vector3(14f, 3f, -15f);
+                targetTaskPosition = new Vector3(Random.Range(-30f, 30f), 3f, Random.Range(-30f, 30f));
             }
-            navAgent.SetDestination(targetTaskPosition);
+            else if (chosenTaskBBP.value == 6)
+            {
+                targetTaskPosition = new Vector3(Random.Range(-30f, 30f), 3f, Random.Range(-30f, 30f))
+            }
+            else if (chosenTaskBBP.value == 7)
+            {
+                targetTaskPosition = new Vector3(35.8f, 1.7f, 0f);
+            }
+                navAgent.SetDestination(targetTaskPosition);
             
         }
 
         protected override void OnUpdate()
         {
-            isMovingBBP.value = navAgent.remainingDistance != 0 && navAgent.remainingDistance != Mathf.Infinity || navAgent.pathPending;
+            isMovingBBP.value = navAgent.remainingDistance !< 0.1f && navAgent.remainingDistance != Mathf.Infinity || navAgent.pathPending;
 
             if (navAgent.remainingDistance <= 0.1f && !navAgent.pathPending)
             {
