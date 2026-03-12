@@ -7,8 +7,9 @@ namespace NodeCanvas.Tasks.Actions {
 
 		public float idleDuration;
 		public float maxIdleDuration;
+        public BBParameter<int> chosenTaskBBP;
 
-		protected override void OnExecute() {
+        protected override void OnExecute() {
             idleDuration = 0f;
             maxIdleDuration = Random.Range(5f, 15f);
 			Debug.Log(maxIdleDuration);
@@ -18,9 +19,9 @@ namespace NodeCanvas.Tasks.Actions {
 			idleDuration += Time.deltaTime;
 			if (idleDuration >= maxIdleDuration)
 			{
-				Debug.Log("idle done");
-				EndAction(true);
+                chosenTaskBBP.value = 5;
+                EndAction(true);
 			}
 		}
-	}
+    }
 }

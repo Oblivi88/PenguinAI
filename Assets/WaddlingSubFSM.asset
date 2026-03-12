@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
   m_Name: WaddlingSubFSM
   m_EditorClassIdentifier: 
-  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"timeSinceLastSampleBBP":{"_name":"timeSinceLastSample","_targetVariableID":"dbc66c6c-984e-4e9b-98ee-0c9b4940b61b"},"targetPositionBBP":{"_name":"targetPosition","_targetVariableID":"6edaea05-b8d8-453b-aa00-edd63b1a0e66"},"isMovingBBP":{"_name":"isMoving","_targetVariableID":"dd756c10-8f4d-4696-9287-6a8cb2908549"},"sampleRateInSeconds":0.5,"sampleRadiusInUnits":5.0,"$type":"NodeCanvas.Tasks.Actions.WanderTask"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Wander","_position":{"x":380.0,"y":200.0},"$type":"NodeCanvas.StateMachines.ActionState"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"isMovingBBP":{"_name":"isMoving","_targetVariableID":"dd756c10-8f4d-4696-9287-6a8cb2908549"},"chosenTaskBBP":{"_name":"chosenTask","_targetVariableID":"ba809514-ef02-4d7e-955c-7712b123df16"},"$type":"NodeCanvas.Tasks.Actions.MoveToTask"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"MoveToTask","_position":{"x":280.0,"y":340.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"timeSinceLastSampleBBP":{"_name":"timeSinceLastSample","_targetVariableID":"dbc66c6c-984e-4e9b-98ee-0c9b4940b61b"},"targetPositionBBP":{"_name":"targetPosition","_targetVariableID":"6edaea05-b8d8-453b-aa00-edd63b1a0e66"},"isMovingBBP":{"_name":"isMoving","_targetVariableID":"dd756c10-8f4d-4696-9287-6a8cb2908549"},"sampleRateInSeconds":0.5,"sampleRadiusInUnits":5.0,"chosenTaskBBP":{"_name":"chosenTask","_targetVariableID":"ba809514-ef02-4d7e-955c-7712b123df16"},"$type":"NodeCanvas.Tasks.Actions.WanderTask"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Wander","_position":{"x":440.0,"y":220.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _objectReferences: []
   _graphSource:
     _version: 3.29
     _category: 
     _comments: 
-    _translation: {x: 71.04138, y: -68.978836}
+    _translation: {x: 21.818045, y: -68.88807}
     _zoomFactor: 1
   _haltSerialization: 0
   _externalSerializationFile: {fileID: 0}

@@ -22,6 +22,7 @@ namespace NodeCanvas.Tasks.Actions
 
         public float wanderDurationTimer;
         public float wanderDurationMax;
+        public BBParameter<int> chosenTaskBBP;
 
         protected override string OnInit()
         {
@@ -29,7 +30,7 @@ namespace NodeCanvas.Tasks.Actions
 
             if (navAgent == null)
             {
-                return $"{agent.name} - NavigationTask: Unable to get NavMesh Agent Reference!";
+                return $"{agent.name} - WanderTask: Unable to get NavMesh Agent Reference!";
             }
             else
             {
@@ -45,6 +46,12 @@ namespace NodeCanvas.Tasks.Actions
         }
         protected override void OnUpdate()
         {
+            wanderDurationTimer += Time.deltaTime;
+            if (wanderDurationTimer >= wanderDurationMax || chosenTaskBBP.value >= 5)
+            {
+                EndAction(true);
+            }
+            
             timeSinceLastSampleBBP.value += Time.deltaTime;
             if (timeSinceLastSampleBBP.value > sampleRateInSeconds)
             {
@@ -71,11 +78,7 @@ namespace NodeCanvas.Tasks.Actions
                 }
             }
 
-            wanderDurationTimer += Time.deltaTime;
-            if (wanderDurationTimer >= wanderDurationMax)
-            {
-                EndAction(true);
-            }
+            
         }
         private Vector3 CalculateTargetPosition()
         {
