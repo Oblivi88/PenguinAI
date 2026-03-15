@@ -1,3 +1,4 @@
+using NodeCanvas.Tasks.Actions;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,12 +9,15 @@ public class AnimationController : MonoBehaviour
 
     // used in the Animator
     private readonly int isMovingHash = Animator.StringToHash("isMoving");
+    private readonly int isSleepingHash = Animator.StringToHash("isSleeping");
+    private readonly int isEatingHash = Animator.StringToHash("isEating");
 
-    // check if moving
-    public bool isMoving;
+    // check if conditions are happening
+    private bool isMoving;
+    public bool isSleeping;
+    public bool isEating;
     void Update()
     {
-        animator.SetBool(isMovingHash, isMoving);
         if (agent.velocity.magnitude >= 0.1f)
         {
             isMoving = true;
@@ -22,5 +26,11 @@ public class AnimationController : MonoBehaviour
         {
             isMoving = false;
         }
+
+
+        animator.SetBool(isMovingHash, isMoving);
+        animator.SetBool(isSleepingHash, isSleeping);
+        animator.SetBool(isEatingHash, isEating);
+
     }
 }

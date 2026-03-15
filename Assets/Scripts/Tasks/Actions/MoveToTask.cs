@@ -40,7 +40,7 @@ namespace NodeCanvas.Tasks.Actions
             }
             else if (chosenTaskBBP.value == 6)
             {
-                targetTaskPosition = new Vector3(Random.Range(-30f, 30f), 3f, Random.Range(-30f, 30f))
+                targetTaskPosition = new Vector3(Random.Range(-30f, 30f), 3f, Random.Range(-30f, 30f));
             }
             else if (chosenTaskBBP.value == 7)
             {
