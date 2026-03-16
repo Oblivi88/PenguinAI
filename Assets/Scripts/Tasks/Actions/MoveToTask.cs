@@ -11,7 +11,7 @@ namespace NodeCanvas.Tasks.Actions
 
         private NavMeshAgent navAgent;
 
-        private Vector3 targetTaskPosition;
+        public BBParameter<Vector3> targetTaskPositionBBP;
         public BBParameter<bool> isMovingBBP;
         public BBParameter<int> chosenTaskBBP;
         protected override string OnInit()
@@ -36,17 +36,17 @@ namespace NodeCanvas.Tasks.Actions
             }
             else if (chosenTaskBBP.value == 5)
             {
-                targetTaskPosition = new Vector3(Random.Range(-30f, 30f), 3f, Random.Range(-30f, 30f));
+                targetTaskPositionBBP.value = new Vector3(Random.Range(-30f, 30f), 3f, Random.Range(-30f, 30f));
             }
             else if (chosenTaskBBP.value == 6)
             {
-                targetTaskPosition = new Vector3(Random.Range(-30f, 30f), 3f, Random.Range(-30f, 30f));
+                EndAction(true);
             }
             else if (chosenTaskBBP.value == 7)
             {
-                targetTaskPosition = new Vector3(35.8f, 1.7f, 0f);
+                targetTaskPositionBBP.value = new Vector3(35.8f, 1.7f, 0f);
             }
-                navAgent.SetDestination(targetTaskPosition);
+                navAgent.SetDestination(targetTaskPositionBBP.value);
             
         }
 

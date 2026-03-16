@@ -7,25 +7,23 @@ namespace NodeCanvas.Tasks.Actions {
 
     public class SleepingTask : ActionTask
     {
-
         private NavMeshAgent navAgent;
         private AnimationController animationController;
         private float sleepTime;
         protected override string OnInit()
         {
-            navAgent = agent.GetComponent<NavMeshAgent>();
             animationController = agent.GetComponent<AnimationController>();
+            navAgent = agent.GetComponent<NavMeshAgent>();
 
             if (navAgent == null)
             {
-                return $"{agent.name} - SleepingTask: Unable to get NavMesh Agent Reference!";
+                return $"{agent.name} - SlidingTask: Unable to get NavMesh Agent Reference!";
             }
             else
             {
                 return null;
             }
         }
-
         protected override void OnExecute()
         {
             sleepTime = 0f;

@@ -1,37 +1,45 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
+using UnityEngine.AI;
+using UnityEngine;
 
 
 namespace NodeCanvas.Tasks.Actions {
 
-	public class SlidingTask : ActionTask {
+	public class SlidingTask : ActionTask
+	{
+        private NavMeshAgent navAgent;
+        private AnimationController animationController;
 
-		//Use for initialization. This is called only once in the lifetime of the task.
-		//Return null if init was successfull. Return an error string otherwise
-		protected override string OnInit() {
-			return null;
-		}
+        public BBParameter<Vector3> targetSlidePositionBBP;
+        protected override string OnInit()
+        {
+            animationController = agent.GetComponent<AnimationController>();
+            navAgent = agent.GetComponent<NavMeshAgent>();
 
-		//This is called once each time the task is enabled.
-		//Call EndAction() to mark the action as finished, either in success or failure.
-		//EndAction can be called from anywhere.
-		protected override void OnExecute() {
-			EndAction(true);
-		}
+            if (navAgent == null)
+            {
+                return $"{agent.name} - SlidingTask: Unable to get NavMesh Agent Reference!";
+            }
+            else
+            {
+                return null;
+            }
+        }
+        protected override void OnExecute()
+        {
+            animationController.isSliding = true;
+            targetSlidePositionBBP.value = new Vector3(Random.Range(-30f, 30f), 3f, Random.Range(-30f, 30f));
+            navAgent.SetDestination(targetSlidePositionBBP.value);
+        }
 
-		//Called once per frame while the action is active.
-		protected override void OnUpdate() {
-			
-		}
-
-		//Called when the task is disabled.
-		protected override void OnStop() {
-			
-		}
-
-		//Called when the task is paused.
-		protected override void OnPause() {
-			
-		}
-	}
+        protected override void OnUpdate()
+        {
+            if (navAgent.remainingDistance <= 0.1f && !navAgent.pathPending)
+            {
+                animationController.isSliding = false;
+                EndAction(true);
+            }
+        }
+    }
 }
