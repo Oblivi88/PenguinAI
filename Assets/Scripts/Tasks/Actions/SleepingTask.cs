@@ -17,7 +17,7 @@ namespace NodeCanvas.Tasks.Actions {
 
             if (navAgent == null)
             {
-                return $"{agent.name} - SlidingTask: Unable to get NavMesh Agent Reference!";
+                return $"{agent.name} - SleepingTask: Unable to get NavMesh Agent Reference!";
             }
             else
             {

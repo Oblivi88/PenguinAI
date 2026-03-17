@@ -44,7 +44,7 @@ namespace NodeCanvas.Tasks.Actions
             }
             else if (chosenTaskBBP.value == 7)
             {
-                targetTaskPositionBBP.value = new Vector3(35.8f, 1.7f, 0f);
+                targetTaskPositionBBP.value = new Vector3(-35.8f, 1.8f, 0f);
             }
                 navAgent.SetDestination(targetTaskPositionBBP.value);
             
