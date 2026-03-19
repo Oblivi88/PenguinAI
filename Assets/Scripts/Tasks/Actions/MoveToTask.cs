@@ -11,6 +11,7 @@ namespace NodeCanvas.Tasks.Actions
 
         private NavMeshAgent navAgent;
 
+        public BBParameter<Transform> playerBBP;
         public BBParameter<Vector3> targetTaskPositionBBP;
         public BBParameter<bool> isMovingBBP;
         public BBParameter<int> chosenTaskBBP;
@@ -52,6 +53,12 @@ namespace NodeCanvas.Tasks.Actions
 
         protected override void OnUpdate()
         {
+            if (chosenTaskBBP.value== 8)
+            {
+                targetTaskPositionBBP.value = playerBBP.value.position;
+                navAgent.SetDestination(targetTaskPositionBBP.value);
+            }
+
             isMovingBBP.value = navAgent.remainingDistance !< 0.1f && navAgent.remainingDistance != Mathf.Infinity || navAgent.pathPending;
 
             if (navAgent.remainingDistance <= 0.1f && !navAgent.pathPending)
