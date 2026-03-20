@@ -1,4 +1,5 @@
 using NodeCanvas.Framework;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -48,7 +49,6 @@ namespace NodeCanvas.Tasks.Actions
                 targetTaskPositionBBP.value = new Vector3(-35.8f, 1.8f, 0f);
             }
                 navAgent.SetDestination(targetTaskPositionBBP.value);
-            
         }
 
         protected override void OnUpdate()
@@ -58,13 +58,25 @@ namespace NodeCanvas.Tasks.Actions
                 targetTaskPositionBBP.value = playerBBP.value.position;
                 navAgent.SetDestination(targetTaskPositionBBP.value);
             }
-
-            isMovingBBP.value = navAgent.remainingDistance !< 0.1f && navAgent.remainingDistance != Mathf.Infinity || navAgent.pathPending;
-
-            if (navAgent.remainingDistance <= 0.1f && !navAgent.pathPending)
+            if (chosenTaskBBP.value > 8)
             {
-                EndAction(true);
+                isMovingBBP.value = navAgent.remainingDistance! < 0.1f && navAgent.remainingDistance != Mathf.Infinity || navAgent.pathPending;
+                if (navAgent.remainingDistance <= 0.1f && !navAgent.pathPending)
+                {
+                    EndAction(true);
+                }
             }
+            else if (chosenTaskBBP.value == 8)
+            {
+                isMovingBBP.value = navAgent.remainingDistance! < 0.7f && navAgent.remainingDistance != Mathf.Infinity || navAgent.pathPending;
+                if (navAgent.remainingDistance <= 1f)
+                {
+                    EndAction(true);
+                }
+            }
+            
+
+            
         }
     }
 }

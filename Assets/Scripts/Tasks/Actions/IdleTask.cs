@@ -12,14 +12,14 @@ namespace NodeCanvas.Tasks.Actions {
         protected override void OnExecute() {
             idleDuration = 0f;
             maxIdleDuration = Random.Range(5f, 15f);
-			Debug.Log(maxIdleDuration);
         }
 
 		protected override void OnUpdate() {
 			idleDuration += Time.deltaTime;
 			if (idleDuration >= maxIdleDuration)
 			{
-				chosenTaskBBP.value = Random.Range(1, 9);
+				chosenTaskBBP.value = 8;
+				//chosenTaskBBP.value = Random.Range(1, 9);
                 EndAction(true);
 			}
 		}
