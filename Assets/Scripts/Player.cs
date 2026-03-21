@@ -6,10 +6,14 @@ public class Player : MonoBehaviour
 {
     private float speed;
     private NavMeshAgent navAgent;
+    public AnimationController penguinAIcontroller;
+    public NavMeshAgent penguinAiNavAgent;
     private Animator animator;
 
     private readonly int playerIsMovingHash = Animator.StringToHash("playerIsMoving");
+    private readonly int playerIsCuddlingHash = Animator.StringToHash("playerIsCuddling");
     private bool playerIsMoving;
+    private bool playerIsCuddling;
 
     public LayerMask terrainLayer; // ensures raycast only clicks on ground, not everything
 
@@ -54,8 +58,17 @@ public class Player : MonoBehaviour
         {
             playerIsMoving = false;
         }
-
+        if (penguinAIcontroller.isCuddling && penguinAiNavAgent.remainingDistance <= 1.5)
+        {
+            navAgent.SetDestination(transform.position);
+            playerIsCuddling = true;
+        }
+        else
+        {
+            playerIsCuddling = false;
+        }
 
         animator.SetBool(playerIsMovingHash, playerIsMoving);
+        animator.SetBool(playerIsCuddlingHash, playerIsCuddling);
     }
 }

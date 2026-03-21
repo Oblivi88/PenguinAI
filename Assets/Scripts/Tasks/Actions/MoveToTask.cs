@@ -16,6 +16,7 @@ namespace NodeCanvas.Tasks.Actions
         public BBParameter<Vector3> targetTaskPositionBBP;
         public BBParameter<bool> isMovingBBP;
         public BBParameter<int> chosenTaskBBP;
+
         protected override string OnInit()
         {
             navAgent = agent.GetComponent<NavMeshAgent>();
@@ -68,8 +69,8 @@ namespace NodeCanvas.Tasks.Actions
             }
             else if (chosenTaskBBP.value == 8)
             {
-                isMovingBBP.value = navAgent.remainingDistance! < 0.7f && navAgent.remainingDistance != Mathf.Infinity || navAgent.pathPending;
-                if (navAgent.remainingDistance <= 1f)
+                isMovingBBP.value = navAgent.remainingDistance! < 1f && navAgent.remainingDistance != Mathf.Infinity || navAgent.pathPending;
+                if (navAgent.remainingDistance <= 1.5f)
                 {
                     EndAction(true);
                 }

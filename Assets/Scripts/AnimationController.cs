@@ -14,7 +14,7 @@ public class AnimationController : MonoBehaviour
     private readonly int isCuddlingHash = Animator.StringToHash("isCuddling");
 
     // check if conditions are happening
-    private bool isMoving;
+    public bool isMoving;
     public bool isSleeping;
     public bool isSliding;
     public bool isEating;

@@ -18,8 +18,7 @@ namespace NodeCanvas.Tasks.Actions {
 			idleDuration += Time.deltaTime;
 			if (idleDuration >= maxIdleDuration)
 			{
-				chosenTaskBBP.value = 8;
-				//chosenTaskBBP.value = Random.Range(1, 9);
+				chosenTaskBBP.value = Random.Range(1, 9);
                 EndAction(true);
 			}
 		}

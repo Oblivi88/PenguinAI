@@ -16,11 +16,11 @@ public class IconController : MonoBehaviour
             icon.sprite = sleeping;
             icon.enabled = true;
         }
-        //else if (penguinAnimationController.isCuddling)
-        //{
-        //    icon.sprite = cuddling;
-        //    icon.enabled = true;    
-        //}
+        else if (penguinAnimationController.isCuddling)
+        {
+            icon.sprite = cuddling;
+            icon.enabled = true;    
+        }
         else
         {
             icon.enabled = false;
