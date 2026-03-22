@@ -74,7 +74,7 @@ namespace NodeCanvas.Tasks.Actions
             {
                 targetTaskPositionBBP.value = playerBBP.value.position;
                 navAgent.SetDestination(targetTaskPositionBBP.value);
-                if (navAgent.remainingDistance <= 1.5f) // if penguin reaches close to player, finish and start cuddling
+                if (navAgent.remainingDistance <= 1.6f) // if penguin reaches close to player, finish and start cuddling
                 {
                     EndAction(true);
                 }

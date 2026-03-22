@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     private readonly int playerIsCuddlingHash = Animator.StringToHash("playerIsCuddling");
     private bool playerIsMoving;
     private bool playerIsCuddling;
+    //footsteps
+    private AudioSource footsteps;
 
     public LayerMask terrainLayer; // ensures raycast only clicks on ground, not everything
 
@@ -26,6 +28,7 @@ public class Player : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         navAgent = GetComponent<NavMeshAgent>();
+        footsteps = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -59,6 +62,18 @@ public class Player : MonoBehaviour
             playerIsCuddling = false;
         }
 
+        // footsteps sound
+        if (playerIsMoving)
+        {
+            if (!footsteps.isPlaying)
+            {
+                footsteps.Play();
+            }
+        }
+        else if (!playerIsMoving)
+        {
+            footsteps.Stop();
+        }
         // to animator (player)
         animator.SetBool(playerIsMovingHash, playerIsMoving);
         animator.SetBool(playerIsCuddlingHash, playerIsCuddling);

@@ -12,6 +12,7 @@ public class SoundController : MonoBehaviour
     public AudioSource sliding;
     public AudioSource snoring;
     public AudioSource cuddling;
+    public AudioSource eating;
 
     private void Update()
     {
@@ -62,6 +63,18 @@ public class SoundController : MonoBehaviour
         else if (!animationController.isCuddling)
         {
             cuddling.Stop();
+        }
+        // EATING
+        if (animationController.isEating)
+        {
+            if (!eating.isPlaying)
+            {
+                eating.Play();
+            }
+        }
+        else if (!animationController.isEating)
+        {
+            eating.Stop();
         }
     }
 }
