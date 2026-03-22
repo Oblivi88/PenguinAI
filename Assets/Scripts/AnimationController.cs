@@ -1,8 +1,13 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+/*
+ SCRIPT TO CONTROL PENGUIN AIS ANIMATIONS
+ USING ANIMATOR
+*/
 public class AnimationController : MonoBehaviour
 {
+    // references to AI's animator and navMeshAgent
     private Animator animator;
     private NavMeshAgent agent;
 
@@ -27,7 +32,8 @@ public class AnimationController : MonoBehaviour
     }
     void Update()
     {
-        if (agent.velocity.magnitude >= 0.1f)
+        // MOVCEMENT CHECK
+        if (agent.velocity.magnitude >= 0.1f) 
         {
             isMoving = true;
         }
@@ -36,7 +42,7 @@ public class AnimationController : MonoBehaviour
             isMoving = false;
         }
 
-
+        // set to animator
         animator.SetBool(isMovingHash, isMoving);
         animator.SetBool(isSleepingHash, isSleeping);
         animator.SetBool(isSlidingHash, isSliding);

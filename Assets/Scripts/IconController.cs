@@ -1,8 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ SCRIPT THAT CONTROLS THE PENGUIN AIS ICONS
+*/
 public class IconController : MonoBehaviour
 {
+    // references to icon as a child of the penguin object, the two source sprites, and the animationController script
     public Image icon;
 
     public Sprite sleeping;
@@ -11,6 +15,8 @@ public class IconController : MonoBehaviour
     public AnimationController penguinAnimationController;
     private void Update()
     {
+        // IF PENGUIN IS SLEEPING OR CUDDLING, DISPLAY APPROPRIATE ICON
+        // IF NOT, HIDE ICONS
         if (penguinAnimationController.isSleeping)
         {
             icon.sprite = sleeping;
